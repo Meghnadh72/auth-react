@@ -9,6 +9,7 @@ Observe the output in the console for both updates.
 */
 
 import { useState, useEffect } from "react";
+import RandomUserComponent from "../APIIntegration";
 
 const AsyncStateTestComponent = () => {
     const [counter, setCounter] = useState(0);
@@ -31,6 +32,7 @@ const AsyncStateTestComponent = () => {
         <button onClick={() => incrementByOne()}>Add One</button>
         <button onClick={() => addTen()}> Add Ten</button>
         Counter Value : {counter}
+        <RandomUserComponent/>
     </>)
 }
 
