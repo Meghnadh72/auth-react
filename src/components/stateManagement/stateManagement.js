@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { increment } from "../../redux/counterSlice";
 
 /*  
 Key Concepts here in state Management:
@@ -18,6 +20,8 @@ Key Concepts here in state Management:
 */
 
 const CounterComponent = () => {
+    const counterR = useSelector((state) => state.counter.counter);
+    const cDispatch = useDispatch();
     const items = [
         { itemID: 1, itemName: "Laptop", itemPrice: 999.99 },
         { itemID: 2, itemName: "Smartphone", itemPrice: 699.99 },
@@ -39,6 +43,7 @@ const CounterComponent = () => {
     const [cartItems, setCartItems] = useState([]);
 
     const addItemstoCart = (item) => {
+        cDispatch(increment());
         setCartItems((prevCartItems) => {
             let updatedCartItems = [...prevCartItems, item];
             updateCartValue(updatedCartItems);
@@ -57,6 +62,7 @@ const CounterComponent = () => {
     return (<>
         <div>
             <h1>Items</h1>
+            {counterR}
             {items.map(item =>
             (
                 <div key={item.itemID}>

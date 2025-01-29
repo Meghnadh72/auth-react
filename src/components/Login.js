@@ -10,8 +10,6 @@ import { Box } from "@mui/material";
 const LoginPage = () => {
     const [resp,error, doLogin]  = useFetch('https://automationexercise.com/api/productsList');
     const [isLoading, setLoading] = useState(false);
-
-    const fetchAPI = () => enableLogin();
     
     const enableLogin = () => {
         console.log("Inside fetchAPI");
@@ -30,7 +28,7 @@ const LoginPage = () => {
             <Grid2 flexDirection="column" > 
                 <Grid2><TextField id="outlined-basic" label="Username" variant="outlined" sx={{m: 1}}/></Grid2>
                 <Grid2><TextField id="outlined-basic" label="Password" variant="outlined" sx={{m: 1}}/></Grid2>
-                <Grid2><Button variant="contained" onClick={fetchAPI}>Login</Button>
+                <Grid2><Button variant="contained" onClick={enableLogin}>Login</Button>
                  {isLoading ? ( <Box display="flex" justifyContent="center" alignItems="center"> <CircularProgress /> </Box> ) : <></>}
                 </Grid2>
                 <Grid2>{error}</Grid2>
